@@ -1,0 +1,10 @@
+FROM mariadb:latest
+
+# Set the environment variables
+ENV MYSQL_DATABASE eurovision
+ENV MYSQL_ROOT_PASSWORD wachtwoord123
+ENV MYSQL_USER duncan
+ENV MYSQL_PASSWORD lawrence
+
+#copy demo.sql into /docker-entryppoint-initdb.d to start the sql script on startup.
+COPY dump.sql /docker-entrypoint-initdb.d

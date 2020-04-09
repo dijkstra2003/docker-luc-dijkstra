@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  flask-web:
+    image: ubuntu-flask:latest
+    volumes:
+      - ./flask/:/my-app

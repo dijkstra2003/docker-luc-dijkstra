@@ -1,0 +1,1 @@
+docker-compose up --scale flask-web=2

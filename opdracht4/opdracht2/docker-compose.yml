@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  flask-web:
+    image: assesment_opdracht3:latest
+    networks: 
+      website:
+        aliases:
+          - flask-web
+    volumes:
+      - ./flask/:/my-app
+  
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    networks: 
+      - website
+    depends_on:
+      - flask-web
+    volumes:
+      - ./nginx/config/nginx.conf:/etc/nginx/conf.d/default.conf
+
+networks: 
+  website:
